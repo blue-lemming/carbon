@@ -1,0 +1,13 @@
+<button (click)="onLoad()">load</button>
+<button (click)="onPlay()" [disabled]="!map.length">play</button>
+<button (click)="onSave()" [disabled]="!result">save</button>
+
+<div *ngFor="let tileLine of map; let y = index;">
+    <span *ngFor="let tile of tileLine; let x = index;"
+          class="tile" [class]="tile.type+'-type'" [ngClass]="adventurerBorder(x,y)">
+        {{tile.type}}<span *ngIf="tile.type==='T'">({{tile.count}})</span>
+    </span>
+</div>
+
+<pre>{{fileMap}}</pre>
+<pre>{{result}}</pre>
